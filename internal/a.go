@@ -16,7 +16,9 @@ var X Int
 //go:noinline
 func (i *Int) Foo() {
 	t := reflect.TypeOf(i)
-	fmt.Printf("i am Int, name=%s, string=%s\n", t.Name(), t.String())
+	go func() {
+		fmt.Printf("i am Int, name=%s, string=%s\n", t.Name(), t.String())
+	}()
 }
 
 func init() {
